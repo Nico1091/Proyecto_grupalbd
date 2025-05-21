@@ -1,0 +1,120 @@
+/* Importar fuentes modernas desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap');
+
+body {
+    padding-top: 0;
+    background-color: #e3f2fd; /* Azul más suave */
+    text-align: left;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+/* Tabla de resultados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 100px;
+    display: none;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+}
+
+th {
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+
+/* Contenedor de búsqueda */
+#busqueda {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Barra de búsqueda */
+#barraBusqueda {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Botón de búsqueda */
+#busqueda button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#busqueda button:hover {
+    background-color: #0056b3;
+}
+
+/* Resultados de búsqueda */
+#resultadoBusqueda {
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Cada cliente */
+#resultadoBusqueda div {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Logo */
+.Logo {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+/* Mensajes */
+#mensaje,
+#successMessage {
+    font-weight: bold;
+    display: none;
+    text-align: center;
+    font-size: 18px;
+}
+
+#mensaje {
+    color: #d32f2f;
+}
+
+#successMessage {
+    color: #2e7d32;
+}
+
+/* Título del banco */
+#nombreDelBanco {
+    text-align: center;
+    color: #2e7d32;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 20px;
+}

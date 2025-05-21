@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Diseño.css">
+    <title>Banco Unisimon</title>
+</head>
+
+<body>
+    <img src="https://res.cloudinary.com/dayhc4cem/image/upload/v1730654139/vcwlfwvmk3xibrw5pvsg.jpg" alt="Foto Logo"
+        class="Logo">
+    <p id="nombreDelBanco"></p>
+
+    <table id="tablaCliente">
+        <thead>
+            <tr>
+                <th colspan="4" scope="colgroup">Informacion Cliente</th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre completo</th>
+            <th scope="col">Cédula</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Correo</th>
+            <th scope="col">fecha de registro</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+
+        <tbody id="listaCliente"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <label for="nombreCliente">Nombre:</label>
+                    <input type="text" id="nombreCliente" placeholder="Ingrese un nombre " required>
+                    <label for="apellidoCliente">Apellido:</label>
+                    <input type="text" id="apellidoCliente" placeholder="Ingrese un apellido" required>
+                    <label for="cedulaCliente">Cédula:</label>
+                    <input type="text" id="cedulaCliente" placeholder="Ingrese una cédula" required>
+                    <label for="direccionCliente">Dirección:</label>
+                    <input type="text" id="direccionCliente" placeholder="Ingrese una dirección" required>
+                    <label for="telefonoCliente">Teléfono:</label>
+                    <input type="text" id="telefonoCliente" placeholder="Ingrese el teléfono" required>
+                    <label for="correoCliente">Correo:</label>
+                    <input type="email" id="correoCliente" placeholder="Ingrese un correo" required>
+                    <button id="agregar_clientes" onclick="agregarClientes()">Agregar Clientes</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label for="idEliminar">Eliminar Cliente por ID:</label>
+                    <input type="text" id="idEliminar" placeholder="Ingrese el ID del cliente" required>
+                    <button id="eliminar_clientes" onclick="eliminar_clientes()">Eliminar Cliente</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <form id="formActualizarCliente">
+                        <input type="text" id="idActualizar" placeholder="Ingrese el ID del cliente" required>
+                        <button type="button" onclick="cargar_cliente()">Buscar Cliente</button>
+                        <label for="nuevoNombre">Nombre:</label>
+                        <input type="text" id="nuevoNombre" placeholder="Nuevo Nombre">
+                        <label for="nuevoApellido">Apellido:</label>
+                        <input type="text" id="nuevoApellido" placeholder="Nuevo Apellido">
+                        <label for="nuevoCedula">Cédula:</label>
+                        <input type="text" id="nuevoCedula" placeholder="Nueva Cédula">
+                        <label for="nuevaDireccion">Dirección:</label>
+                        <input type="text" id="nuevaDireccion" placeholder="Nueva Dirección">
+                        <label for="nuevoTelefono">Teléfono:</label>
+                        <input type="text" id="nuevoTelefono" placeholder="Nuevo Teléfono">
+                        <label for="nuevoCorreo">Correo:</label>
+                        <input type="email" id="nuevoCorreo" placeholder="Nuevo Correo">
+                        <button type="button" onclick="guardar_cambios_cliente()">Guardar Cambios</button>
+                    </form>
+                </td>
+            </tr>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+    <table id="tablaSucursal">
+        <thead>
+            <tr>
+                <th colspan="4" scope="colgroup">Informacion Sucursal</th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Codigo Postal</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        <tbody id="listaSucursal"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <label for="nombreSucursal">Nombre :</label>
+                    <input type="text" id="nombreSucursal" placeholder="Ingrese un nombre " required>
+                    <label for="direccionSucursal">Direccion:</label>
+                    <input type="text" id="direccionSucursal" placeholder="Ingrese una direccion" required>
+                    <label for="ciudadSucursal">Ciudad:</label>
+                    <input type="text" id="ciudadSucursal" placeholder="Ingrese una ciudad" required>
+                    <label for="codigoSucursal">Codigo Postal:</label>
+                    <input type="text" id="codigoSucursal" placeholder="Ingrese una codigo" required>
+                    <label for="telefonoSucursal">Teléfono:</label>
+                    <input type="text" id="telefonoSucursal" placeholder="Ingrese el teléfono" required>
+                    <button id="agregar_sucursal" onclick="agregarSucursal()">Agregar Sucursal</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label for="idEliminar">Eliminar sucursal por ID:</label>
+                    <input type="text" id="idEliminarsucursal" placeholder="Ingrese el ID de la sucursal" required>
+                    <button id="eliminar_sucursal" onclick="eliminar_sucursales()">Eliminar Sucursal</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <form id="formActualizaSucursal">
+                        <input type="text" id="idActualizarS" placeholder="Ingrese el ID del Sucursal" required>
+                        <button type="button" onclick="cargar_sucursal()">Buscar Sucursal</button>
+                        <label for="nuevoNombreS">Nombre:</label>
+                        <input type="text" id="nuevoNombreS" placeholder="Nuevo Nombre">
+                        <label for="nuevaDireccionS">Direccion:</label>
+                        <input type="text" id="nuevaDireccionS" placeholder="nueva Direccion">
+                        <label for="nuevaCiudadS">Ciudad:</label>
+                        <input type="text" id="nuevaCiudadS" placeholder="Nueva Ciudad">
+                        <label for="nuevoCodigoS">Codigo Postal:</label>
+                        <input type="text" id="nuevoCodigoS" placeholder="Nuevo Codigo Postal">
+                        <label for="nuevoTelefonos">Telefono:</label>
+                        <input type="text" id="nuevoTelefonoS" placeholder="Nuevo Telefono">
+                        <button type="button" onclick="guardar_cambios_sucursal()">Guardar Cambios</button>
+                    </form>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+    <table id="TablaDepartamento">
+        <thead>
+            <tr>
+                <th colspan="4" scope="colgroup">Informacion Departamento</th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        <tbody id="listaDepartamento"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <label for="nombreDepartamento">Nombre</label>
+                    <input type="text" id="nombreDepartamento" placeholder="Ingrese un nombre" required>
+                    <label for="descripcionDepartamento"> Descripcion</label>
+                    <input type="text" id="descripcionDepartamento" placeholder="Ingrese una descripcion" required>
+                    <button id="agregar_departamento" onclick="agregarDepartamento()">Agregar Departamento</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label for="eliminarDepartamento">Eliminar Departamento por Id:</label>
+                    <input type="text" id="idEliminardepartamento" placeholder="Ingrese el Id del departamento"
+                        required>
+                    <button id="Eliminar_departamento" onclick="eliminar_departamentos()">Eliminar departamento</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <form id="formActualizarDepartamento"></form>
+                    <input type="text" id="idActualizarD" placeholder="Ingrese el id de el departamento" required>
+                    <button type="button" onclick="cargar_Departamento()">Buscar Departamento</button>
+                    <label for="nuevaDescripcionD">Descripcion</label>
+                    <input type="text" id="nuevaDescripcionD" placeholder="Descripcion nueva">
+                    <label for="nuevoNombreD">nombre:</label>
+                    <input type="text" id="nuevoNombreD" placeholder="nombre nuevo">
+                    <button type="button" onclick="guardar_cambios_departamento()">Guardar cambios</button>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <table id="TablaCuenta">
+        <thead>
+            <tr>
+                <th colspan="4" scope="colgroup">Informacion Cuenta</th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Saldo</th>
+            <th scope="col">Fecha de apertura</th>
+            <th scope="col">Id de Cliente</th>
+            <th scope="col">Id de Sucursal</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        <tbody id="listacuenta"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <label for="NumeroCuenta">Numero:</label>
+                    <input type="text" id="NumeroCuenta" placeholder="Ingrese un numero de cuenta" required>
+                    <label for="TipoCuenta"> Tipo:</label>
+                    <input type="text" id="TipoCuenta" placeholder="Ingrese un tipo de cuenta" required>
+                    <label for="SaldoCuenta">Saldo</label>
+                    <input type="text" id="SaldoCuenta" placeholder="Ingrese un saldo de cuenta" required>
+                    <label for="Cliente_Id_Cuenta">Id de Cliente</label>
+                    <input type="text" id="Cliente_Id_Cuenta"
+                        placeholder="Ingrese el id del cliente al que pertence la cuenta">
+                    <label for="Sucursal_Id_Cuenta">Id de Sucursal:</label>
+                    <input type="text" id="Sucursal_Id_Cuenta"
+                        placeholder="Ingrese el id de la sucursal al que pertence la cuenta">
+                    <button id="agregar_cuentas" onclick="agregarcuenta()">Agregar cuenta</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label for="eliminarCuenta">Eliminar Cuenta por Id</label>
+                    <input type="text" id="idEliminarCuenta" placeholder="Ingrese el id de cuenta" required>
+                    <button id="eliminar_Cuenta" onclick="eliminarCuentas()">Eliminar Cuenta</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <form id="formActualizaCuenta">
+                        <input type="text" id="idActualizarCuenta" placeholder="Ingrese el ID de la Cuenta" required>
+                        <button type="button" onclick="cargar_cuenta()">Buscar Sucursal</button>
+                        <label for="NumeroCuentaC">Numero de Cuenta:</label>
+                        <input type="text" id="NumeroCuentaC" placeholder="numero de cuenta">
+                        <label for="TipoCuentaC">Tipo de Cuenta:</label>
+                        <input type="text" id="TipoCuentaC" placeholder="nuevo tipo de cuenta">
+                        <label for="nuevoSaldoC">Saldo de cuenta:</label>
+                        <input type="text" id="nuevoSaldoC" placeholder="Nuevo saldo">
+                        <label for="nuevaFechaApertura">Fecha de apertura:</label>
+                        <input type="text" id="nuevaFechaApertura" placeholder="Nuevo fecha de apertura">
+                        <label for="nuevoClienteC">Id de Cliente:</label>
+                        <input type="text" id="nuevoClienteC" placeholder="Nuevo Id de cliente">
+                        <label for="nuevaSucursalC">Id de Sucursal</label>
+                        <input type="text" id="nuevaSucursalC" placeholder="Nuevo Id de  sucursal">
+                        <button type="button" onclick="guardar_cambios_cuenta()">Guardar Cambios</button>
+                    </form>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+
+
+    <table id="TablaTransaccion">
+        <thead>
+            <tr>
+                <th>
+                <th colspan="4" scope="colgroup">Informacion Transaccion</th>
+                </th>
+            </tr>
+        </thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tipo transaccion</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Fecha de transaccion</th>
+            <th scope="col">Id de cuenta Origen</th>
+            <th scope="col">Id de cuenta destino</th>
+            <th scope="col">Ficha de transaccion</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        <tbody id="listaTransaccion"></tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+
+                    <label for="TipoTransaccion">Tipo de Transaccion:</label>
+                    <input type="text" id="TipoTransaccion" placeholder="Transferencia, Deposito o Retiro" required>
+                    <label for="Monto_T"> Monto:</label>
+                    <input type="text" id="Monto_T" placeholder="Ingrese el monto:">
+                    <label for="Id_cuentaOrigen">Id de Cuenta de origen</label>
+                    <input type="text" id="Id_cuentaOrigen" placeholder="Ingrese el id  q hace la cuenta de Origen">
+                    <label for="Id_CuentaDestino">Id de Cuenta destino:</label>
+                    <input type="text" id="Id_CuentaDestino"
+                        placeholder="Ingrese el id de la cuenta destino a la que se realiza la transaccion">
+                    <label for="FichaTransaccion">Ficha de Transaccion</label>
+                    <input type="text" id="FichaTransaccion" placeholder="Ingrese la ficha de Transaccion">
+                    <button id="agregar_Transaccion" onclick="agregarTransaccion()">Agregar Transaccion</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label for="EliminarTransaccion">Eliminar Cuenta por Id</label>
+                    <input type="text" id="idEliminarTransaccion" placeholder="Ingrese el id de Transaccion" required>
+                    <button id="eliminar_Transaccion" onclick="eliminarTransacciones()">Eliminar Cuenta</button>
+                </td>
+            </tr>
+            <tr>
+                <form id="formActualizarTransaccion">
+                    <input type="text" id="IdActualizaTransaccion" placeholder="Ingrese el ID de la Transaccion"
+                        required>
+                    <button type="button" onclick="cargar_Transaccion()">Buscar Transaccion</button>
+                    <label for="Tipo_Transaccion">Numero de Cuenta:</label>
+                    <input type="text" id="Tipo_Transaccion" placeholder="numero de Transaccion">
+                    <label for="SaldoT">Tipo de Cuenta:</label>
+                    <input type="text" id="SaldoT" placeholder="Cantidad de Saldo">
+                    <label for="Numero_Cuenta">Saldo de cuenta:</label>
+                    <input type="text" id="Numero_Cuenta_T" placeholder="Nuevo saldo">
+                    <label for="nuevaFechaApertura">Fecha de apertura:</label>
+                    <input type="text" id="nuevaFechaApertura" placeholder="Nuevo fecha de apertura">
+                    <label for="nuevoClienteC">Id de Cliente:</label>
+                    <input type="text" id="nuevoClienteC" placeholder="Nuevo Id de cliente">
+                    <label for="nuevaSucursalC">Id de Sucursal</label>
+                    <input type="text" id="nuevaSucursalC" placeholder="Nuevo Id de  sucursal">
+                    <button type="button" onclick="guardar_cambios_cuenta()">Guardar Cambios</button>
+                </form>
+            </tr>
+        </tfoot>
+    </table>
+    <p id="mensaje">No hay datos disponibles.</p>
+    <p id="successMessage">Operación realizada con éxito.</p>
+
+    <script>
+
+        function nombrDelBanco() {
+            document.getElementById('nombreDelBanco').textContent = 'Banco Unisimon';
+        }
+        nombrDelBanco();
+
+
+        function mostrarClientes() {
+            fetch('http://localhost:3000/clientes')
+                .then(response => response.json())
+                .then(data => {
+                    const listaClienteDiv = document.getElementById('listaCliente');
+                    listaClienteDiv.innerHTML = '';
+
+                    if (data.length === 0) {
+                        document.getElementById('mensaje').style.display = 'block';
+                        tablaCliente.style.display = 'none';
+                        return;
+                    } else {
+                        document.getElementById('mensaje').style.display = 'none';
+                    }
+
+                    data.forEach(cliente => {
+                        const row = document.createElement('tr');
+                        const nombreCompleto = `${cliente.Nombre} ${cliente.Apellido}`;
+                        row.innerHTML = `
+                            <td>${cliente.Id}</td>
+                            <td>${nombreCompleto}</td>
+                            <td>${cliente.Cedula}</td>
+                            <td>${cliente.Direccion}</td>
+                            <td>${cliente.Telefono}</td>
+                            <td>${cliente.Correo}</td>
+                            <td>${cliente.Fecha_registro}</td>
+                            <td><button class="eliminar-btn" data-id="${cliente.Id}" onclick="eliminar_cliente(${cliente.Id})">Eliminar</button></td>
+                        `;
+                        listaClienteDiv.appendChild(row);
+                    });
+                    tablaCliente.style.display = 'table';
+                })
+                .catch(error => console.error('Error al obtener los clientes:', error));
+        }
+
+        function mostrarTransacciones() {
+            fetch('http://localhost:3000/Transacciones')
+                .then(response => response.json())
+                .then(data => {
+                    const listaTransaccionesDiv = document.getElementById('listaTransaccion');
+                    listaTransaccionesDiv.innerHTML = '';
+                    if (data.length === 0) {
+                        document.getElementById('mensaje').style.display = 'block';
+                        TablaTransaccion.style.display = 'none';
+                        return;
+                    } else {
+                        document.getElementById('mensaje').style.display = 'none';
+                    }
+                    data.forEach(Transaccion => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${Transaccion.Id}</td>
+                            <td>${Transaccion.Tipo_Transaccion}</td>
+                            <td>${Transaccion.Monto}</td>
+                            <td>${Transaccion.Fecha_Transaccion}</td>
+                            <td>${Transaccion.Cuenta_Origen_Id}</td>
+                            <td>${Transaccion.Cuenta_Destino_Id}</td>
+                            <td>${Transaccion.Ficha_Transaccion}</td>
+                            <td><button class="eliminar-btn" data-id="${Transaccion.Id}" onclick="eliminar_cliente(${Transaccion.Id})">Eliminar</button></td>
+                        `;
+                        listaTransaccionesDiv.appendChild(row);
+                    });
+                    TablaTransaccion.style.display = 'table';
+                })
+                .catch(error => console.error('Error al obtener las Transacciones:', error));
+        }
+
+        function mostrarSucursal() {
+            fetch('http://localhost:3000/sucursal')
+                .then(response => response.json())
+                .then(data => {
+                    const listaSucursalDiv = document.getElementById('listaSucursal');
+                    listaSucursalDiv.innerHTML = '';
+
+                    if (data.length === 0) {
+                        document.getElementById('mensaje').style.display = 'block';
+                        tablaSucursal.style.display = 'none';
+                        return;
+                    } else {
+                        document.getElementById('mensaje').style.display = 'none';
+                    }
+
+                    data.forEach(sucursal => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${sucursal.Id}</td>
+                            <td>${sucursal.Nombre}</td>
+                            <td>${sucursal.Direccion}</td>
+                            <td>${sucursal.Ciudad}</td>
+                            <td>${sucursal.Codigo_postal}</td>
+                            <td>${sucursal.Telefono}</td>
+                            <td><button class="eliminar-btn" data-id="${sucursal.Id}" onclick="eliminar_sucursal(${sucursal.Id})">Eliminar</button></td>
+                        `;
+                        listaSucursalDiv.appendChild(row);
+                    });
+                    tablaSucursal.style.display = 'table';
+                })
+                .catch(error => console.error('Error al obtener los datos de sucursal:', error));
+        }
+
+        function mostrarDepartamentos() {
+            fetch('http://localhost:3000/Departamento')
+                .then(response => response.json())
+                .then(data => {
+                    const listaDepartamentoDiv = document.getElementById('listaDepartamento');
+                    listaDepartamentoDiv.innerHTML = '';
+                    if (data.length === 0) {
+                        document.getElementById('Mensaje').style.display = 'block';
+                        TablaDepartamento.style.display = 'none';
+                        return;
+                    } else {
+                        document.getElementById('mensaje').style.display = 'none';
+                    }
+                    data.forEach(Departamento => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                    <td>${Departamento.Id}</td>
+                    <td>${Departamento.Nombre}</td>
+                    <td>${Departamento.Descripcion}</td>
+                    <td><button class="eliminar-btn" data-id="${Departamento.Id}" onclick="eliminar_departamento(${Departamento.Id})">Eliminar</button></td>
+                `;
+                        listaDepartamentoDiv.appendChild(row);
+                    });
+                    TablaDepartamento.style.display = 'table';
+                })
+                .catch(error => console.error('Error al obtener los datos de departamento', error));
+        }
+
+        function mostrarCuenta() {
+            fetch('http://localhost:3000/Cuenta')
+                .then(response => response.json())
+                .then(data => {
+                    const listaCuentaDiv = document.getElementById('listacuenta');
+                    listaCuentaDiv.innerHTML = '';
+                    if (data.length === 0) {
+                        document.getElementById('mensaje').style.display = 'block';
+                        TablaCuenta.style.display = 'none';
+                        return;
+                    } else {
+                        document.getElementById('mensaje').style.display = 'none';
+                    }
+                    data.forEach(Cuenta => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${Cuenta.Id}</td>
+                            <td>${Cuenta.Numero_Cuenta}</td>
+                            <td>${Cuenta.Tipo_Cuenta}</td>
+                            <td>${Cuenta.Saldo}</td>
+                            <td>${Cuenta.Fecha_Apertura}</td>
+                            <td>${Cuenta.Cliente_Id}</td>
+                            <td>${Cuenta.Sucursal_Id}</td>
+                            <td><button class="eliminar-btn" data-id="${Cuenta.Id}" onclick="eliminar_cuenta(${Cuenta.Id})">Eliminar</button></td>
+                        `;
+                        listaCuentaDiv.appendChild(row);
+                    });
+                    TablaCuenta.style.display = 'table';
+                })
+                .catch(error => console.error('Error al obtener los datos de cuenta', error));
+        }
+
+
+
+        mostrarClientes();
+        mostrarSucursal();
+        mostrarDepartamentos();
+        mostrarCuenta();
+        mostrarTransacciones();
+
+        function eliminar_clientes() {
+            const clienteId = document.querySelector('#idEliminar').value;
+            eliminar_cliente(clienteId);
+        }
+
+        function eliminar_sucursales() {
+            const SucursalId = document.querySelector('#idEliminarsucursal').value;
+            eliminar_sucursal(SucursalId);
+        }
+
+        function eliminar_departamentos() {
+            const DepartamentoId = document.querySelector('#idEliminardepartamento').value;
+            eliminar_departamento(DepartamentoId);
+        }
+
+        function eliminarCuentas() {
+            const CuentaId = document.querySelector('#idEliminarCuenta').value;
+            eliminarCuenta(CuentaId);
+        }
+
+        function eliminarTransacciones() {
+            const TransaccionId = document.querySelector('#idEliminarTransaccion').value;
+            eliminar_Transaccion(TransaccionId);
+        }
+
+        function eliminar_departamento(DepartamentoId) {
+            if (!DepartamentoId) {
+                alert('Id de departamento no valido');
+                return;
+            }
+            fetch(`http://localhost:3000/departamento/eliminar`, {
+                method: 'DELETE',
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ id: DepartamentoId })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarDepartamentos();
+                })
+                .catch(err => {
+                    console.error('Error al eliminar departamento:', err);
+                    alert(`Error al eliminar departamento: ${err.message}`);
+                });
+        }
+
+        function eliminar_cliente(clienteId) {
+            if (!clienteId) {
+                alert('ID de cliente no válido.');
+                return;
+            }
+
+            fetch(`http://localhost:3000/clientes/eliminar`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: clienteId })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarClientes();
+                })
+                .catch(err => {
+                    console.error('Error al eliminar cliente:', err);
+                    alert(`Error al eliminar cliente: ${err.message}`);
+                });
+        }
+
+        function EliminarTransaccion(TransaccionId) {
+            if (!TransaccionId) {
+                alert('ID de TransaccionId no válido.');
+                return;
+            }
+
+            fetch(`http://localhost:3000/Transaccion/eliminar`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: TransaccionId })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    moestrarTransaccion();
+                })
+                .catch(err => {
+                    console.error('Error al eliminar TransaccionId:', err);
+                    alert(`Error al eliminar TransaccionId: ${err.message}`);
+                });
+        }
+
+        function eliminar_sucursal(SucursalId) {
+            if (!SucursalId) {
+                alert('ID de sucursal no válido.');
+                return;
+            }
+
+            fetch(`http://localhost:3000/sucursal/eliminar`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: SucursalId })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarSucursal();  // Actualiza la lista de sucursales
+                })
+                .catch(err => {
+                    console.error('Error al eliminar sucursal:', err);
+                    alert(`Error al eliminar sucursal: ${err.message}`);
+                });
+        };
+
+        function eliminarCuenta(CuentaId) {
+            if (!CuentaId) {
+                alert('Id de Cuenta no valido')
+                return;
+            }
+
+            fetch('http://localhost:3000/cuenta/eliminar', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: CuentaId })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarCuenta();
+                })
+                .catch(err => {
+                    console.error('Error al eliminar Cuenta', err);
+                    alert(`Error al eliminar Cuenta: ${err.message}`)
+                });
+        }
+
+        function agregarClientes() {
+            const cliente = {
+                Nombre: document.getElementById('nombreCliente').value,
+                Apellido: document.getElementById('apellidoCliente').value,
+                Cedula: document.getElementById('cedulaCliente').value,
+                Direccion: document.getElementById('direccionCliente').value,
+                Telefono: document.getElementById('telefonoCliente').value,
+                Correo: document.getElementById('correoCliente').value
+            };
+
+            fetch('http://localhost:3000/clientes/agregar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cliente)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarClientes();
+                    document.getElementById('successMessage').textContent = 'Cliente agregado exitosamente';
+                    document.getElementById('successMessage').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 1000);
+                })
+                .catch(error => {
+                    if (error.message === 'Cliente duplicado') {
+                        document.getElementById('successMessage').textContent = 'El cliente ya está registrado';
+                        document.getElementById('successMessage').style.display = 'block';
+                        setTimeout(() => {
+                            document.getElementById('successMessage').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        console.error('Error al agregar cliente:', error);
+                        alert('Error al agregar cliente.');
+                    }
+                });
+        }
+
+        function agregarcuenta() {
+            const cuenta = {
+                Numero_Cuenta: document.getElementById('NumeroCuenta').value,
+                Tipo_Cuenta: document.getElementById('TipoCuenta').value,
+                Saldo: document.getElementById('SaldoCuenta').value,
+                Cliente_Id_Cuenta: document.getElementById('Cliente_Id_Cuenta').value,
+                Sucursal_Id_Cuenta: document.getElementById('Sucursal_Id_Cuenta').value
+            };
+
+            fetch('http://localhost:3000/Cuenta/agregar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cuenta)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarCuenta();
+                    document.getElementById('successMessage').textContent = 'Cuenta agregado exitosamente';
+                    document.getElementById('successMessage').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 3000);
+                })
+                .catch(error => {
+                    if (error.message === 'Cuenta duplicado') {
+                        document.getElementById('successMessage').textContent = 'La cuenta ya está registrado';
+                        document.getElementById('successMessage').style.display = 'block';
+                        setTimeout(() => {
+                            document.getElementById('successMessage').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        console.error('Error al agregar cuenta:', error);
+                        alert('Error al agregar cuenta.');
+                    }
+                });
+        }
+
+        function agregarSucursal() {
+            const sucursal = {
+                Nombre: document.getElementById('nombreSucursal').value,
+                Direccion: document.getElementById('direccionSucursal').value,
+                Ciudad: document.getElementById('ciudadSucursal').value,
+                Codigo_postal: document.getElementById('codigoSucursal').value,
+                Telefono: document.getElementById('telefonoSucursal').value
+            };
+
+            fetch('http://localhost:3000/sucursal/agregar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(sucursal)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarSucursal(); // Actualiza la lista de sucursales
+                    document.getElementById('successMessage').textContent = 'Sucursal agregada exitosamente';
+                    document.getElementById('successMessage').style.display = 'block';
+
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 3000);
+                }).catch(error => {
+                    if (error.message === 'Sucursal duplicada') {
+                        document.getElementById('successMessage').textContent = 'La sucursal ya está registrada';
+                        document.getElementById('successMessage').style.display = 'block';
+                        setTimeout(() => {
+                            document.getElementById('successMessage').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        console.error('Error al agregar sucursal', error);
+                        alert('Error al agregar sucursal');
+                    }
+
+                });
+        }
+
+        function agregarDepartamento() {
+            const departamento = {
+                Nombre: document.getElementById('nombreDepartamento').value,
+                Descripcion: document.getElementById('descripcionDepartamento').value
+            };
+
+            fetch('http://localhost:3000/Departamento/agregar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(departamento)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarDepartamentos(); // Actualiza la lista de sucursales
+                    document.getElementById('successMessage').textContent = 'Departamento agregado exitosamente';
+                    document.getElementById('successMessage').style.display = 'block';
+
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 3000);
+                }).catch(error => {
+                    if (error.message === 'Departamento duplicado') {
+                        document.getElementById('successMessage').textContent = 'El departamento ya está registrado';
+                        document.getElementById('successMessage').style.display = 'block';
+                        setTimeout(() => {
+                            document.getElementById('successMessage').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        console.error('Error al agregar departamento', error);
+                        alert('Error al agregar departamento');
+                    }
+
+                });
+        }
+
+
+        function agregarTransaccion() {
+            const Transaccion = {
+                Tipo: document.getElementById('TipoTransaccion').value,
+                Monto: document.getElementById('Monto_T').value,
+                Cuenta_Origen_Id: document.getElementById('Id_cuentaOrigen').value,
+                CuentaDestinoId: document.getElementById('Id_CuentaDestino').value,
+                ficha_Transaccion: document.getElementById('FichaTransaccion').value
+            };
+
+            fetch('http://localhost:3000/Transaccion/agregar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Transaccion)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la red');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    mostrarTransacciones(); // Actualiza la lista de sucursales
+                    document.getElementById('successMessage').textContent = 'Transaccion agregada exitosamente';
+                    document.getElementById('successMessage').style.display = 'block';
+
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 3000);
+                }).catch(error => {
+                    if (error.message === 'Transaccion duplicado') {
+                        document.getElementById('successMessage').textContent = 'La Transaccion ya está registrada';
+                        document.getElementById('successMessage').style.display = 'block';
+                        setTimeout(() => {
+                            document.getElementById('successMessage').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        console.error('Error al agregar Transaccion', error);
+                        alert('Error al agregar Transaccion');
+                    }
+
+                });
+        }
+
+
+
+        function cargar_cliente() {
+            const idCliente = document.querySelector('#idActualizar').value;
+
+            fetch(`http://localhost:3000/obtenerCliente?id=${idCliente}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.querySelector('#nuevoNombre').value = data.Nombre;
+                        document.querySelector('#nuevoApellido').value = data.Apellido;
+                        document.querySelector('#nuevoCedula').value = data.Cedula;
+                        document.querySelector('#nuevaDireccion').value = data.Direccion;
+                        document.querySelector('#nuevoTelefono').value = data.Telefono;
+                        document.querySelector('#nuevoCorreo').value = data.Correo;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function cargar_Departamento() {
+            const idDepartamento = document.querySelector('#idActualizarD').value;
+
+            fetch(`http://localhost:3000/obtenerDepartamento?id=${idDepartamento}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.querySelector('#nuevoNombreD').value = data.Nombre;
+                        document.querySelector('#nuevaDescripcionD').value = data.Descripcion;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function cargar_sucursal() {
+            const idSucursal = document.querySelector('#idActualizarS').value;
+
+            fetch(`http://localhost:3000/obtenerSucursal?id=${idSucursal}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.querySelector('#nuevoNombreS').value = data.Nombre;
+                        document.querySelector('#nuevaDireccionS').value = data.Direccion;
+                        document.querySelector('#nuevaCiudadS').value = data.Ciudad;
+                        document.querySelector('#nuevoCodigoS').value = data.Codigo_postal;
+                        document.querySelector('#nuevoTelefonoS').value = data.Telefono;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function cargar_cuenta() {
+            const idCuenta = document.querySelector('#idActualizarCuenta').value;
+
+            fetch(`http://localhost:3000/obtenerCuenta?id=${idCuenta}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.querySelector('#NumeroCuentaC').value = data.Numero_Cuenta;
+                        document.querySelector('#TipoCuentaC').value = data.Tipo_Cuenta;
+                        document.querySelector('#nuevoSaldoC').value = data.Saldo;
+                        document.querySelector('#nuevaFechaApertura').value = data.Fecha_Apertura;
+                        document.querySelector('#nuevoClienteC').value = data.Cliente_Id;
+                        document.querySelector('#nuevaSucursalC').value = data.Sucursal_Id;
+                    }
+                })
+                .catch(error => console.error('Error', error));
+        }
+
+
+        function guardar_cambios_cliente() {
+            const datosActualizados = {
+                Cedula: document.querySelector('#nuevoCedula').value,
+                Nombre: document.querySelector('#nuevoNombre').value,
+                Apellido: document.querySelector('#nuevoApellido').value,
+                Direccion: document.querySelector('#nuevaDireccion').value,
+                Telefono: document.querySelector('#nuevoTelefono').value,
+                Correo: document.querySelector('#nuevoCorreo').value
+            };
+
+            fetch('http://localhost:3000/actualizarCliente', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datosActualizados)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.error || 'Error desconocido');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);
+                    mostrarClientes(); // Actualizar la lista de clientes
+                })
+                .catch(error => console.error('Error al actualizar el cliente:', error.message));
+        }
+
+
+        function guardar_cambios_sucursal() {
+            const datosActualizadosS = {
+                Nombre: document.querySelector('#nuevoNombreS').value,
+                Direccion: document.querySelector('#nuevaDireccionS').value,
+                Ciudad: document.querySelector('#nuevaCiudadS').value,
+                Codigo_postal: document.querySelector('#nuevoCodigoS').value,
+                Telefono: document.querySelector('#nuevoTelefonoS').value
+            };
+
+            fetch('http://localhost:3000/actualizarSucursal', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datosActualizadosS)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.error || 'Error desconocido');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);
+                    mostrarSucursal(); // Actualizar la lista de clientes
+                })
+                .catch(error => console.error('Error al actualizar La Sucursal:', error.message));
+        }
+
+        function guardar_cambios_departamento() {
+            const datosActualizadosdepartamento = {
+                Descripcion: document.querySelector('#nuevaDescripcionD').value,
+                Nombre: document.querySelector('#nuevoNombreD').value
+            };
+
+            fetch('http://localhost:3000/actualizarDepartamento', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datosActualizadosdepartamento)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.error || 'Error desconocido');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);
+                    mostrarDepartamentos();
+                })
+                .catch(error => console.error('Error al actualizar el departamento:', error.message));
+        }
+
+        function guardar_cambios_cuenta() {
+            const datosActualizadosCuenta = {
+                Numero_Cuenta: document.querySelector('#NumeroCuentaC').value,
+                Tipo_Cuenta: document.querySelector('#TipoCuentaC').value,
+                Saldo: document.querySelector('#nuevoSaldoC').value,
+                Fecha_Apertura: document.querySelector('#nuevaFechaApertura').value,
+                Cliente_Id: document.querySelector('#nuevoClienteC').value,
+                Sucursal_Id: document.querySelector('#nuevaSucursalC').value
+            };
+
+            fetch('http://localhost:3000/actualizarCuenta', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datosActualizadosCuenta)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.error || 'Error desconocido');
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Respuesta del servidor: ', data);
+                    mostrarCuenta();
+                })
+                .catch(error => console.error('Error al actualizar la cuenta', error.message));
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
